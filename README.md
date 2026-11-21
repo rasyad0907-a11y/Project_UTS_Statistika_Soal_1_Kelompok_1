@@ -9,10 +9,12 @@ Aplikasi berbasis web untuk melakukan pengolahan dan analisis statistik deskript
 
 | No. | NIM | Nama Anggota |
 |---|---|---|
-| 1 | 2503010035 | Wafik Muhammad Almajdi |
+| 1 | 2503010024 | Riyad Hiyan Arizki |
 | 2 | 2503010025 | Muhammad Rasyad Mubarok |
-| 3 | 2503010132 | Allya Hericka Putri |
+| 3 | 2503010035 | Wafik Muhammad Almajdi |
 | 4 | 2503010051 | Reva Nur Budiman |
+| 5 | 2503010132 | Allya Hericka Putri |
+
 
 ---
 
