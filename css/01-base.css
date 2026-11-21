@@ -152,6 +152,26 @@ a {
     transition: background .2s ease, color .2s ease;
     white-space: nowrap;
     -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+
+/* INDIKATOR PINGGIR KIRI */
+
+.menu-link::before {
+    content: "";
+    position: absolute;
+    left: -19px;
+    top: 50%;
+    width: 4px;
+    height: 0;
+    background: #65c5e8;
+    border-radius: 0 5px 5px 0;
+    transform: translateY(-50%);
+    transition: height .2s ease;
+}
+
+.menu-link:active::before {
+    height: 75%;
 }
 
 .menu-icon {
@@ -168,12 +188,16 @@ a {
     color: #65c5e8;
 }
 
-/* HOVER KHUSUS PERANGKAT YANG MENGGUNAKAN MOUSE */
+/* HOVER MOUSE */
 
 @media (hover: hover) and (pointer: fine) {
     .menu-link:not(.active):hover {
         background: rgba(101, 197, 232, .10);
         color: #ffffff;
+    }
+
+    .menu-link:hover::before {
+        height: 75%;
     }
 }
 
@@ -405,6 +429,10 @@ a {
         font-size: 11px;
     }
 
+    .menu-link::before {
+        left: -12px;
+    }
+
     .menu-label {
         font-size: 9px;
         padding: 0 9px;
@@ -510,6 +538,10 @@ a {
         gap: 8px;
         font-size: 11px;
         border: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .menu-link::before {
+        display: none;
     }
 
     .menu-link.active {
