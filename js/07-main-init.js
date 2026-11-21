@@ -195,16 +195,13 @@ function setupFormulaSearch() {
     if (!search) return;
 
     search.addEventListener("input", event => {
-        const keyword =
-            event.target.value.toLowerCase();
+        const keyword = event.target.value.toLowerCase();
 
         document
             .querySelectorAll(".dictionary-card")
             .forEach(card => {
                 card.style.display =
-                    card.textContent
-                        .toLowerCase()
-                        .includes(keyword)
+                    card.textContent.toLowerCase().includes(keyword)
                         ? ""
                         : "none";
             });
@@ -221,16 +218,13 @@ function setupTermSearch() {
     if (!search) return;
 
     search.addEventListener("input", event => {
-        const keyword =
-            event.target.value.toLowerCase();
+        const keyword = event.target.value.toLowerCase();
 
         document
             .querySelectorAll(".term-card")
             .forEach(card => {
                 card.style.display =
-                    card.textContent
-                        .toLowerCase()
-                        .includes(keyword)
+                    card.textContent.toLowerCase().includes(keyword)
                         ? ""
                         : "none";
             });
@@ -238,7 +232,7 @@ function setupTermSearch() {
 }
 
 // ========================================
-// NAVIGASI AKTIF DAN SMOOTH SCROLL
+// NAVIGASI DAN FAST SMOOTH SCROLL
 // ========================================
 
 function setupNavigation() {
@@ -273,13 +267,10 @@ function setupNavigation() {
     if (!sections.length) return;
 
     let ticking = false;
-    let animationFrame = null;
-    let isNavigating = false;
-
-    const scrollDuration = 700;
+    let navigationTarget = null;
 
     // ------------------------------------
-    // MENGATUR MENU AKTIF
+    // MENU AKTIF
     // ------------------------------------
 
     function setActiveNavigation(activeLink) {
@@ -297,7 +288,7 @@ function setupNavigation() {
             "page"
         );
 
-        // Scroll menu horizontal pada mobile
+        // Scroll horizontal sidebar mobile saja
         const sidebarMenu =
             activeLink.closest(".sidebar-menu");
 
@@ -315,85 +306,38 @@ function setupNavigation() {
                 linkRect.left < menuRect.left ||
                 linkRect.right > menuRect.right
             ) {
-                activeLink.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest",
-                    inline: "nearest"
+                const targetLeft =
+                    sidebarMenu.scrollLeft +
+                    linkRect.left -
+                    menuRect.left -
+                    (menuRect.width - linkRect.width) / 2;
+
+                sidebarMenu.scrollTo({
+                    left: Math.max(0, targetLeft),
+                    behavior: "smooth"
                 });
             }
         }
     }
 
     // ------------------------------------
-    // EASING ANIMATION
-    // ------------------------------------
-
-    function easeInOutCubic(progress) {
-        return progress < 0.5
-            ? 4 * progress * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-    }
-
-    // ------------------------------------
-    // CUSTOM SMOOTH SCROLL
+    // FAST SMOOTH SCROLL
     // ------------------------------------
 
     function smoothScrollTo(target) {
-        // Hentikan animasi sebelumnya
-        if (animationFrame !== null) {
-            cancelAnimationFrame(animationFrame);
-            animationFrame = null;
-        }
-
-        const startPosition = window.scrollY;
-
-        const targetPosition =
+        const targetPosition = Math.max(
+            0,
             target.getBoundingClientRect().top +
-            window.scrollY -
-            25;
+            window.scrollY - 25
+        );
 
-        const distance =
-            targetPosition - startPosition;
+        navigationTarget = target;
 
-        const startTime = performance.now();
-
-        isNavigating = true;
-
-        function animate(currentTime) {
-            const elapsed =
-                currentTime - startTime;
-
-            const progress = Math.min(
-                elapsed / scrollDuration,
-                1
-            );
-
-            const easedProgress =
-                easeInOutCubic(progress);
-
-            const currentPosition =
-                startPosition +
-                distance * easedProgress;
-
-            window.scrollTo({
-                top: currentPosition,
-                behavior: "instant"
-            });
-
-            if (progress < 1) {
-                animationFrame =
-                    requestAnimationFrame(animate);
-
-            } else {
-                animationFrame = null;
-                isNavigating = false;
-
-                updateActiveOnScroll();
-            }
-        }
-
-        animationFrame =
-            requestAnimationFrame(animate);
+        // Native smooth scroll tanpa animasi custom
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+        });
     }
 
     // ------------------------------------
@@ -417,25 +361,53 @@ function setupNavigation() {
             }
         }
 
-        // Deteksi bagian paling bawah halaman
+        const documentHeight = Math.max(
+            document.documentElement.scrollHeight,
+            document.body.scrollHeight
+        );
+
+        const currentPosition =
+            window.scrollY + window.innerHeight;
+
         const atBottom =
-            window.innerHeight + window.scrollY >=
-            document.documentElement.scrollHeight - 5;
+            currentPosition >= documentHeight - 5;
 
         if (atBottom) {
             currentSection =
                 sections[sections.length - 1];
         }
 
+        // Saat navigasi berlangsung, jangan biarkan
+        // pergantian menu mengganggu target navigasi.
+        if (navigationTarget) {
+            const targetReached =
+                Math.abs(
+                    navigationTarget.getBoundingClientRect().top - 25
+                ) <= 8;
+
+            if (targetReached) {
+                navigationTarget = null;
+            } else {
+                const targetItem = sections.find(
+                    item => item.section === navigationTarget
+                );
+
+                if (targetItem) {
+                    setActiveNavigation(targetItem.link);
+                    return;
+                }
+            }
+        }
+
         setActiveNavigation(currentSection.link);
     }
 
     // ------------------------------------
-    // OPTIMASI SCROLL
+    // EVENT SCROLL
     // ------------------------------------
 
     function handleScroll() {
-        if (ticking || isNavigating) return;
+        if (ticking) return;
 
         ticking = true;
 
@@ -445,8 +417,14 @@ function setupNavigation() {
         });
     }
 
+    window.addEventListener(
+        "scroll",
+        handleScroll,
+        { passive: true }
+    );
+
     // ------------------------------------
-    // KLIK MENU NAVIGASI
+    // KLIK NAVIGASI
     // ------------------------------------
 
     sections.forEach(item => {
@@ -468,20 +446,11 @@ function setupNavigation() {
     });
 
     // ------------------------------------
-    // EVENT SCROLL
-    // ------------------------------------
-
-    window.addEventListener(
-        "scroll",
-        handleScroll,
-        { passive: true }
-    );
-
-    // ------------------------------------
-    // EVENT RESIZE
+    // RESIZE
     // ------------------------------------
 
     window.addEventListener("resize", () => {
+        navigationTarget = null;
         handleScroll();
     });
 
@@ -499,7 +468,6 @@ function setupNavigation() {
 
         if (target) {
             setActiveNavigation(target.link);
-
             smoothScrollTo(target.section);
         }
     });
