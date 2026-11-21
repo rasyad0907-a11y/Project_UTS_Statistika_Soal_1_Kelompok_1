@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Data Deskriptif | Kelompok 1</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">K</div>
+            <div class="brand-text">
+                <h2>Kalkulator Data Deskriptif</h2>
+                <span>KELOMPOK 1</span>
+            </div>
+        </div>
+
+        <div class="menu-label">MENU UTAMA</div>
+
+        <nav class="navigation">
+            <a href="#dashboard" class="nav-link active">
+                <span>▦</span> Dashboard
+            </a>
+            <a href="#input" class="nav-link">
+                <span>⌨</span> Input Data
+            </a>
+            <a href="#hasil" class="nav-link">
+                <span>▤</span> Hasil Perhitungan
+            </a>
+            <a href="#visualisasi" class="nav-link">
+                <span>▥</span> Visualisasi
+            </a>
+            <a href="#rumus" class="nav-link">
+                <span>∑</span> Kamus Rumus
+            </a>
+            <a href="#istilah" class="nav-link">
+                <span>📖</span> Kamus Istilah
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-info">
+                <div class="info-icon">i</div>
+                <div>
+                    <strong>Statistika</strong>
+                    <p>Pengolahan Data Deskriptif</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">Statistika / Dashboard</p>
+                <h2>Kalkulator Data Deskriptif</h2>
+            </div>
+            <div class="topbar-right">
+                <span class="status-dot"></span>
+                <span>Kelompok 1</span>
+            </div>
+        </header>
+
+        <section id="dashboard" class="page-section">
+            <div class="welcome">
+                <div>
+                    <span class="eyebrow">STATISTIKA DESKRIPTIF</span>
+                    <h1>Selamat Datang di Kalkulator Data Deskriptif</h1>
+                    <p>Masukkan data, lakukan perhitungan statistik, dan lihat hasilnya dalam bentuk visualisasi.</p>
+                    <a href="#input" class="primary-button">Mulai Mengolah Data →</a>
+                </div>
+                <div class="welcome-illustration">∑</div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Ringkasan Data</h2>
+                    <p>Informasi singkat dari data yang sedang diolah.</p>
+                </div>
+            </div>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-icon blue">▤</div>
+                    <p>Jumlah Data</p>
+                    <h2 id="totalData">0</h2>
+                    <span>Data yang dimasukkan</span>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon purple">∑</div>
+                    <p>Rata-rata</p>
+                    <h2 id="dashboardMean">0</h2>
+                    <span>Mean data</span>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon green">↔</div>
+                    <p>Nilai Minimum</p>
+                    <h2 id="dashboardMin">0</h2>
+                    <span>Nilai terkecil</span>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon orange">↕</div>
+                    <p>Nilai Maksimum</p>
+                    <h2 id="dashboardMax">0</h2>
+                    <span>Nilai terbesar</span>
+                </div>
+            </div>
+
+            <div class="dashboard-bottom">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Informasi Aplikasi</h3>
+                            <p>Fitur yang tersedia</p>
+                        </div>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-number">01</span>
+                            <div>
+                                <strong>Input Data Manual</strong>
+                                <p>Masukkan angka secara langsung.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-number">02</span>
+                            <div>
+                                <strong>Import File CSV</strong>
+                                <p>Unggah data dari file CSV.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-number">03</span>
+                            <div>
+                                <strong>Perhitungan Otomatis</strong>
+                                <p>Hitung ukuran pemusatan dan penyebaran data.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-number">04</span>
+                            <div>
+                                <strong>Ekspor Hasil</strong>
+                                <p>Unduh hasil perhitungan dalam CSV atau PDF.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel quick-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Panduan Singkat</h3>
+                            <p>Cara menggunakan aplikasi</p>
+                        </div>
+                    </div>
+                    <ol class="guide-list">
+                        <li>Masuk ke menu Input Data.</li>
+                        <li>Masukkan angka atau unggah file CSV.</li>
+                        <li>Tekan tombol Hitung Statistik.</li>
+                        <li>Lihat hasil pada menu Hasil Perhitungan.</li>
+                        <li>Unduh hasil jika diperlukan.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="input" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">PENGOLAHAN DATA</span>
+                    <h2>Input Data</h2>
+                    <p>Masukkan data secara manual atau unggah file CSV.</p>
+                </div>
+            </div>
+
+            <div class="input-grid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Input Manual</h3>
+                            <p>Masukkan angka yang akan dihitung.</p>
+                        </div>
+                    </div>
+
+                    <label for="dataInput">Data Angka</label>
+                    <textarea id="dataInput" placeholder="Contoh: 10, 20, 30, 40, 50"></textarea>
+                    <p class="input-hint">Pisahkan setiap angka menggunakan koma, spasi, atau baris baru.</p>
+
+                    <div class="button-group">
+                        <button class="primary-button" id="calculateBtn">Hitung Statistik</button>
+                        <button class="secondary-button" id="clearBtn">Hapus Data</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Import File</h3>
+                            <p>Unggah data menggunakan file CSV.</p>
+                        </div>
+                    </div>
+
+                    <div class="upload-area" id="dropArea">
+                        <div class="upload-icon">⇧</div>
+                        <h3>Upload File CSV</h3>
+                        <p>Tarik file ke sini atau pilih dari perangkat.</p>
+                        <input type="file" id="csvFile" accept=".csv">
+                        <label for="csvFile" class="secondary-button upload-button">Pilih File</label>
+                    </div>
+                    <p class="input-hint" id="fileStatus">Belum ada file yang dipilih.</p>
+                    <button class="secondary-button full-button" id="downloadTemplate">Unduh Template CSV</button>
+                </div>
+            </div>
+
+            <div class="panel data-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3>Preview Data</h3>
+                        <p>Data yang akan diproses.</p>
+                    </div>
+                    <span class="data-count" id="previewCount">0 Data</span>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nilai Data</th>
+                            </tr>
+                        </thead>
+                        <tbody id="previewTable">
+                            <tr>
+                                <td colspan="2" class="empty-state">Belum ada data yang dimasukkan.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="hasil" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">HASIL ANALISIS</span>
+                    <h2>Hasil Perhitungan</h2>
+                    <p>Hasil pengolahan data statistik deskriptif.</p>
+                </div>
+            </div>
+
+            <div class="result-grid">
+                <div class="result-card">
+                    <span>Jumlah Data (n)</span>
+                    <h2 id="resultN">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Jumlah Nilai (Σx)</span>
+                    <h2 id="resultSum">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Mean</span>
+                    <h2 id="resultMean">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Median</span>
+                    <h2 id="resultMedian">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Modus</span>
+                    <h2 id="resultMode">-</h2>
+                </div>
+                <div class="result-card">
+                    <span>Range</span>
+                    <h2 id="resultRange">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Minimum</span>
+                    <h2 id="resultMin">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Maksimum</span>
+                    <h2 id="resultMax">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Kuartil 1 (Q1)</span>
+                    <h2 id="resultQ1">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Kuartil 3 (Q3)</span>
+                    <h2 id="resultQ3">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>IQR</span>
+                    <h2 id="resultIQR">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Varians Sampel</span>
+                    <h2 id="resultVariance">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Standar Deviasi Sampel</span>
+                    <h2 id="resultStd">0</h2>
+                </div>
+                <div class="result-card">
+                    <span>Koefisien Variasi</span>
+                    <h2 id="resultCV">0%</h2>
+                </div>
+            </div>
+
+            <div class="panel interpretation-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3>Interpretasi Data</h3>
+                        <p>Ringkasan dari hasil perhitungan.</p>
+                    </div>
+                </div>
+                <div id="interpretation">
+                    <p>Masukkan data terlebih dahulu untuk melihat interpretasi.</p>
+                </div>
+            </div>
+
+            <div class="export-panel panel">
+                <div>
+                    <h3>Ekspor Hasil Perhitungan</h3>
+                    <p>Simpan hasil pengolahan data ke perangkat.</p>
+                </div>
+                <div class="button-group">
+                    <button class="primary-button" id="exportCSV">Unduh CSV</button>
+                    <button class="secondary-button" id="exportPDF">Unduh PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="visualisasi" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">GRAFIK DATA</span>
+                    <h2>Visualisasi Data</h2>
+                    <p>Tampilkan data dalam bentuk grafik agar lebih mudah dipahami.</p>
+                </div>
+            </div>
+
+            <div class="visual-grid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Grafik Distribusi Data</h3>
+                            <p>Visualisasi nilai setiap data.</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="dataChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Diagram Frekuensi</h3>
+                            <p>Jumlah kemunculan setiap nilai.</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="frequencyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rumus" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">PUSAT PEMBELAJARAN</span>
+                    <h2>Kamus Rumus</h2>
+                    <p>Kumpulan rumus yang digunakan dalam statistika deskriptif.</p>
+                </div>
+            </div>
+
+            <div class="dictionary-search">
+                <input type="text" id="formulaSearch" placeholder="Cari nama rumus...">
+            </div>
+
+            <div class="dictionary-grid" id="formulaList">
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Pemusatan</span>
+                    <h3>Mean (Rata-rata)</h3>
+                    <div class="formula">x̄ = Σx / n</div>
+                    <p>Mean adalah nilai rata-rata dari seluruh data dengan membagi jumlah seluruh nilai dengan banyaknya data.</p>
+                    <small>Σx = Jumlah nilai data, n = Banyak data.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Pemusatan</span>
+                    <h3>Median</h3>
+                    <div class="formula">Me = Data tengah</div>
+                    <p>Median adalah nilai tengah dari data yang sudah diurutkan dari nilai terkecil hingga terbesar.</p>
+                    <small>Jika n ganjil menggunakan satu nilai tengah. Jika genap menggunakan rata-rata dua nilai tengah.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Pemusatan</span>
+                    <h3>Modus</h3>
+                    <div class="formula">Mo = Nilai dengan frekuensi tertinggi</div>
+                    <p>Modus merupakan nilai yang paling sering muncul dalam kumpulan data.</p>
+                    <small>Data dapat memiliki satu modus, lebih dari satu modus, atau tidak memiliki modus.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Penyebaran</span>
+                    <h3>Range (Jangkauan)</h3>
+                    <div class="formula">R = Xmax − Xmin</div>
+                    <p>Range adalah selisih antara nilai terbesar dan nilai terkecil dalam suatu data.</p>
+                    <small>Xmax = Nilai maksimum, Xmin = Nilai minimum.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Letak</span>
+                    <h3>Kuartil 1 (Q1)</h3>
+                    <div class="formula">Q1 = Median bagian bawah</div>
+                    <p>Kuartil pertama merupakan nilai yang membatasi 25% data terbawah setelah data diurutkan.</p>
+                    <small>Dihitung dari bagian bawah data yang telah diurutkan.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Letak</span>
+                    <h3>Kuartil 3 (Q3)</h3>
+                    <div class="formula">Q3 = Median bagian atas</div>
+                    <p>Kuartil ketiga merupakan nilai yang membatasi 75% data terbawah setelah data diurutkan.</p>
+                    <small>Dihitung dari bagian atas data yang telah diurutkan.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Penyebaran</span>
+                    <h3>Interquartile Range (IQR)</h3>
+                    <div class="formula">IQR = Q3 − Q1</div>
+                    <p>IQR merupakan selisih antara kuartil ketiga dan kuartil pertama untuk mengetahui penyebaran 50% data tengah.</p>
+                    <small>Q3 = Kuartil ketiga, Q1 = Kuartil pertama.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Penyebaran</span>
+                    <h3>Varians Sampel</h3>
+                    <div class="formula">s² = Σ(x − x̄)² / (n − 1)</div>
+                    <p>Varians sampel mengukur seberapa jauh nilai data menyebar dari rata-rata.</p>
+                    <small>x = Nilai data, x̄ = Mean, n = Banyak data.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Penyebaran</span>
+                    <h3>Standar Deviasi Sampel</h3>
+                    <div class="formula">s = √s²</div>
+                    <p>Standar deviasi merupakan akar kuadrat dari varians dan menunjukkan tingkat penyebaran data.</p>
+                    <small>s² = Varians sampel.</small>
+                </div>
+
+                <div class="dictionary-card">
+                    <span class="dictionary-tag">Ukuran Penyebaran</span>
+                    <h3>Koefisien Variasi</h3>
+                    <div class="formula">KV = (s / x̄) × 100%</div>
+                    <p>Koefisien variasi menunjukkan tingkat penyebaran data relatif terhadap nilai rata-rata.</p>
+                    <small>s = Standar deviasi sampel, x̄ = Mean.</small>
+                </div>
+            </div>
+        </section>
+
+        <section id="istilah" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">PUSAT PEMBELAJARAN</span>
+                    <h2>Kamus Istilah</h2>
+                    <p>Penjelasan istilah penting dalam statistika deskriptif.</p>
+                </div>
+            </div>
+
+            <div class="dictionary-search">
+                <input type="text" id="termSearch" placeholder="Cari istilah statistika...">
+            </div>
+
+            <div class="term-list" id="termList">
+                <div class="term-card">
+                    <h3>Statistika</h3>
+                    <p>Ilmu yang mempelajari cara mengumpulkan, mengolah, menganalisis, dan menyajikan data.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Statistika Deskriptif</h3>
+                    <p>Metode statistika yang digunakan untuk menggambarkan atau meringkas karakteristik suatu kumpulan data.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Data</h3>
+                    <p>Kumpulan informasi atau fakta yang diperoleh melalui pengamatan, pengukuran, atau penelitian.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Populasi</h3>
+                    <p>Seluruh objek atau individu yang menjadi perhatian dalam suatu penelitian.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Sampel</h3>
+                    <p>Sebagian anggota populasi yang diambil untuk mewakili populasi dalam penelitian.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Mean</h3>
+                    <p>Nilai rata-rata yang diperoleh dari jumlah seluruh data dibagi banyaknya data.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Median</h3>
+                    <p>Nilai tengah dari data yang telah diurutkan.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Modus</h3>
+                    <p>Nilai yang paling sering muncul dalam suatu kumpulan data.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Frekuensi</h3>
+                    <p>Banyaknya kemunculan suatu nilai dalam kumpulan data.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Varians</h3>
+                    <p>Ukuran yang menunjukkan tingkat penyebaran data terhadap nilai rata-rata.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Standar Deviasi</h3>
+                    <p>Ukuran penyebaran data yang merupakan akar kuadrat dari varians.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Kuartil</h3>
+                    <p>Nilai yang membagi data yang sudah diurutkan menjadi empat bagian sama banyak.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Outlier</h3>
+                    <p>Nilai yang letaknya jauh berbeda dari sebagian besar nilai dalam suatu kumpulan data.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Range</h3>
+                    <p>Selisih antara nilai maksimum dan nilai minimum.</p>
+                </div>
+                <div class="term-card">
+                    <h3>Koefisien Variasi</h3>
+                    <p>Ukuran penyebaran relatif yang dinyatakan dalam bentuk persentase terhadap rata-rata.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 StatDesk - Kelompok 1</p>
+            <p>Kalkulator Data Deskriptif</p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
