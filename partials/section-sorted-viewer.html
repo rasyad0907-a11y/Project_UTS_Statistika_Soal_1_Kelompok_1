@@ -1,0 +1,420 @@
+
+<section id="data-terurut" class="content-section">
+
+    <div class="section-heading">
+        <div>
+            <span class="section-subtitle">PENGELOLAAN HASIL</span>
+            <h2>Data Terurut</h2>
+            <p>Menampilkan urutan data dari nilai terkecil hingga terbesar.</p>
+        </div>
+    </div>
+
+    <div class="dashboard-card sorted-card">
+
+        <div class="card-heading">
+            <div>
+                <h3>Urutan Data</h3>
+                <p>Data yang telah diurutkan secara ascending.</p>
+            </div>
+
+            <span class="sorted-badge">Ascending</span>
+        </div>
+
+        <div id="sortedData" class="sorted-data-container">
+            <div class="empty-state">
+                <div class="empty-state-icon">↕</div>
+                <h4>Belum Ada Data</h4>
+                <p>Masukkan data untuk menampilkan urutan data.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="rumus" class="content-section">
+
+    <div class="section-heading">
+        <div>
+            <span class="section-subtitle">REFERENSI STATISTIK</span>
+            <h2>Kamus Rumus</h2>
+            <p>Kumpulan rumus yang digunakan dalam statistika deskriptif.</p>
+        </div>
+    </div>
+
+    <div class="dashboard-card dictionary-card">
+
+        <div class="dictionary-search">
+            <div>
+                <h3>Daftar Rumus Statistik</h3>
+                <p>Cari rumus berdasarkan nama atau fungsinya.</p>
+            </div>
+
+            <input
+                type="text"
+                id="formulaSearch"
+                placeholder="Cari rumus..."
+            >
+        </div>
+
+        <div id="formulaList" class="formula-list">
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>1. Mean (Rata-rata)</h4>
+                    <span class="formula-category">Pemusatan</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        x̄ = Σx / n
+                    </div>
+
+                    <p>
+                        Mean adalah jumlah seluruh nilai data dibagi
+                        dengan banyaknya data.
+                    </p>
+
+                    <small>
+                        Keterangan: Σx = jumlah seluruh data,
+                        n = banyak data.
+                    </small>
+                </div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>2. Median</h4>
+                    <span class="formula-category">Pemusatan</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        Me = nilai tengah data
+                    </div>
+
+                    <p>
+                        Median merupakan nilai yang berada di tengah
+                        setelah data diurutkan.
+                    </p>
+
+                    <small>
+                        Jika jumlah data ganjil, ambil satu nilai tengah.
+                        Jika genap, rata-ratakan dua nilai tengah.
+                    </small>
+                </div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>3. Modus</h4>
+                    <span class="formula-category">Pemusatan</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        Mo = nilai dengan frekuensi tertinggi
+                    </div>
+
+                    <p>
+                        Modus adalah nilai yang paling sering muncul
+                        dalam kumpulan data.
+                    </p>
+                </div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>4. Range (Jangkauan)</h4>
+                    <span class="formula-category">Penyebaran</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        R = Xmax - Xmin
+                    </div>
+
+                    <p>
+                        Range merupakan selisih antara nilai terbesar
+                        dan nilai terkecil.
+                    </p>
+                </div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>5. Kuartil</h4>
+                    <span class="formula-category">Letak Data</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        Q1 = Kuartil bawah
+                        <br>
+                        Q2 = Median
+                        <br>
+                        Q3 = Kuartil atas
+                    </div>
+
+                    <p>
+                        Kuartil membagi data yang telah diurutkan
+                        menjadi empat bagian.
+                    </p>
+                </div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>6. Interquartile Range (IQR)</h4>
+                    <span class="formula-category">Penyebaran</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        IQR = Q3 - Q1
+                    </div>
+
+                    <p>
+                        IQR adalah selisih antara kuartil ketiga
+                        dan kuartil pertama.
+                    </p>
+                </div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>7. Varians</h4>
+                    <span class="formula-category">Penyebaran</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        σ² = Σ(x - x̄)² / n
+                    </div>
+
+                    <p>
+                        Varians populasi mengukur rata-rata kuadrat
+                        selisih setiap nilai dengan mean.
+                    </p>
+
+                    <small>
+                        Untuk sampel, penyebutnya menggunakan n - 1.
+                    </small>
+                </div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>8. Standar Deviasi</h4>
+                    <span class="formula-category">Penyebaran</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        σ = √σ²
+                    </div>
+
+                    <p>
+                        Standar deviasi adalah akar kuadrat dari varians
+                        dan menunjukkan tingkat penyebaran data.
+                    </p>
+                </div>
+            </div>
+
+            <div class="formula-item">
+                <div class="formula-header">
+                    <h4>9. Koefisien Variasi</h4>
+                    <span class="formula-category">Penyebaran</span>
+                </div>
+
+                <div class="formula-content">
+                    <div class="formula-equation">
+                        KV = (s / x̄) × 100%
+                    </div>
+
+                    <p>
+                        Koefisien variasi menunjukkan tingkat penyebaran
+                        relatif terhadap rata-rata.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="formulaEmpty" class="empty-search" hidden>
+            Rumus yang dicari tidak ditemukan.
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="istilah" class="content-section">
+
+    <div class="section-heading">
+        <div>
+            <span class="section-subtitle">REFERENSI STATISTIK</span>
+            <h2>Kamus Istilah</h2>
+            <p>Penjelasan istilah yang sering digunakan dalam statistika.</p>
+        </div>
+    </div>
+
+    <div class="dashboard-card dictionary-card">
+
+        <div class="dictionary-search">
+            <div>
+                <h3>Daftar Istilah Statistik</h3>
+                <p>Cari istilah untuk mengetahui pengertiannya.</p>
+            </div>
+
+            <input
+                type="text"
+                id="termSearch"
+                placeholder="Cari istilah..."
+            >
+        </div>
+
+        <div id="termList" class="term-list">
+
+            <div class="term-item">
+                <div class="term-letter">D</div>
+                <div>
+                    <h4>Data</h4>
+                    <p>
+                        Sekumpulan informasi atau nilai yang dikumpulkan
+                        untuk dianalisis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">N</div>
+                <div>
+                    <h4>Numerik</h4>
+                    <p>
+                        Data yang berbentuk angka dan dapat digunakan
+                        dalam proses perhitungan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">M</div>
+                <div>
+                    <h4>Mean</h4>
+                    <p>
+                        Nilai rata-rata yang diperoleh dari jumlah
+                        seluruh data dibagi banyaknya data.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">M</div>
+                <div>
+                    <h4>Median</h4>
+                    <p>
+                        Nilai tengah dari data yang telah diurutkan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">M</div>
+                <div>
+                    <h4>Modus</h4>
+                    <p>
+                        Nilai yang memiliki frekuensi kemunculan
+                        paling tinggi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">F</div>
+                <div>
+                    <h4>Frekuensi</h4>
+                    <p>
+                        Banyaknya kemunculan suatu nilai atau kelompok
+                        nilai dalam data.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">V</div>
+                <div>
+                    <h4>Varians</h4>
+                    <p>
+                        Ukuran yang menggambarkan rata-rata kuadrat
+                        penyimpangan nilai data dari rata-ratanya.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">S</div>
+                <div>
+                    <h4>Standar Deviasi</h4>
+                    <p>
+                        Ukuran yang menunjukkan seberapa jauh data
+                        menyebar dari nilai rata-rata.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">K</div>
+                <div>
+                    <h4>Kuartil</h4>
+                    <p>
+                        Nilai yang membagi data terurut menjadi
+                        empat bagian yang sama banyak.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">I</div>
+                <div>
+                    <h4>IQR</h4>
+                    <p>
+                        Jangkauan antarkuartil yang menunjukkan
+                        penyebaran 50% bagian tengah data.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">P</div>
+                <div>
+                    <h4>Populasi</h4>
+                    <p>
+                        Seluruh objek atau individu yang menjadi
+                        sasaran penelitian.
+                    </p>
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-letter">S</div>
+                <div>
+                    <h4>Sampel</h4>
+                    <p>
+                        Sebagian anggota populasi yang dipilih
+                        untuk mewakili populasi.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="termEmpty" class="empty-search" hidden>
+            Istilah yang dicari tidak ditemukan.
+        </div>
+
+    </div>
+
+</section>

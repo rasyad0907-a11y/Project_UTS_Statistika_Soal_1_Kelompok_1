@@ -1,0 +1,143 @@
+
+<section id="hasil" class="content-section">
+
+    <div class="section-heading">
+        <div>
+            <span class="section-subtitle">HASIL ANALISIS</span>
+            <h2>Hasil Statistik Deskriptif</h2>
+            <p>Hasil perhitungan berdasarkan data yang telah dimasukkan.</p>
+        </div>
+    </div>
+
+    <div class="result-toolbar">
+
+        <div>
+            <span class="result-indicator"></span>
+            <span>Hasil Pengolahan Data</span>
+        </div>
+
+        <div class="export-actions">
+            <button type="button" id="exportCSV" class="btn-outline">
+                ↓ Ekspor CSV
+            </button>
+
+            <button type="button" id="exportPDF" class="btn-primary">
+                ↓ Ekspor PDF
+            </button>
+        </div>
+
+    </div>
+
+    <div class="result-grid">
+
+        <div class="result-card">
+            <span class="result-label">Jumlah Data (N)</span>
+            <h3 id="resultN">-</h3>
+            <p>Banyaknya data</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Jumlah Nilai (Σx)</span>
+            <h3 id="resultSum">-</h3>
+            <p>Total seluruh nilai</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Mean</span>
+            <h3 id="resultMean">-</h3>
+            <p>Rata-rata</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Median</span>
+            <h3 id="resultMedian">-</h3>
+            <p>Nilai tengah</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Modus</span>
+            <h3 id="resultMode">-</h3>
+            <p>Nilai yang sering muncul</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Range</span>
+            <h3 id="resultRange">-</h3>
+            <p>Jangkauan data</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Minimum</span>
+            <h3 id="resultMin">-</h3>
+            <p>Nilai terkecil</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Maksimum</span>
+            <h3 id="resultMax">-</h3>
+            <p>Nilai terbesar</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Kuartil 1 (Q1)</span>
+            <h3 id="resultQ1">-</h3>
+            <p>Kuartil bawah</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Kuartil 3 (Q3)</span>
+            <h3 id="resultQ3">-</h3>
+            <p>Kuartil atas</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">IQR</span>
+            <h3 id="resultIQR">-</h3>
+            <p>Jangkauan antarkuartil</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Varians</span>
+            <h3 id="resultVariance">-</h3>
+            <p>Ukuran penyebaran data</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Standar Deviasi</span>
+            <h3 id="resultStd">-</h3>
+            <p>Simpangan baku</p>
+        </div>
+
+        <div class="result-card">
+            <span class="result-label">Koefisien Variasi</span>
+            <h3 id="resultCV">-</h3>
+            <p>Persentase variasi data</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-card interpretation-card">
+
+        <div class="card-heading">
+            <div>
+                <h3>Interpretasi Hasil</h3>
+                <p>Penjelasan singkat dari hasil perhitungan statistik.</p>
+            </div>
+
+            <span class="card-heading-icon">✦</span>
+        </div>
+
+        <div id="interpretation" class="interpretation-content">
+            <div class="empty-state">
+                <div class="empty-state-icon">∑</div>
+                <h4>Belum Ada Hasil Analisis</h4>
+                <p>
+                    Masukkan data terlebih dahulu untuk menampilkan
+                    interpretasi hasil statistik.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>

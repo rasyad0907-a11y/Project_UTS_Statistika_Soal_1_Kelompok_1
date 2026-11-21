@@ -1,0 +1,142 @@
+
+/* ========================================
+   PLUGINS & INTERACTION
+======================================== */
+
+/* CHART.JS */
+
+.chart-container canvas {
+    width: 100% !important;
+    max-width: 100%;
+}
+
+/* INPUT FILE */
+
+#csvFile {
+    display: none;
+}
+
+#csvFile:focus-visible + label {
+    outline: 2px solid #258db9;
+}
+
+/* SEARCH */
+
+.dictionary-search input::placeholder,
+textarea::placeholder {
+    color: #a5b0be;
+}
+
+.dictionary-search input:focus {
+    background: white;
+}
+
+/* BUTTON STATES */
+
+button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #3299c3;
+    outline-offset: 3px;
+}
+
+/* ACTIVE NAVIGATION */
+
+.menu-link {
+    position: relative;
+}
+
+.menu-link.active::before {
+    content: "";
+    position: absolute;
+    left: -19px;
+    top: 8px;
+    bottom: 8px;
+    width: 3px;
+    background: #65c5e8;
+    border-radius: 0 5px 5px 0;
+}
+
+/* DRAG AND DROP */
+
+.upload-area.dragover {
+    border: 2px dashed #258db9;
+    background: #eaf5fa;
+    transform: scale(1.01);
+}
+
+/* EMPTY AND HIDDEN ELEMENTS */
+
+[hidden] {
+    display: none !important;
+}
+
+.empty-search:not([hidden]) {
+    display: block;
+}
+
+/* DATA TABLE */
+
+.data-table td:first-child,
+.data-table th:first-child {
+    width: 65px;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* RESULT NUMBER */
+
+.result-card h3,
+.summary-card h3 {
+    word-break: break-word;
+}
+
+/* SMOOTH ANIMATION */
+
+.summary-card,
+.result-card,
+.dashboard-card,
+.menu-link,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-upload {
+    transition: all .2s ease;
+}
+
+/* CHART RESPONSIVE */
+
+@media (max-width: 768px) {
+    .chart-container {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .chart-container canvas {
+        max-width: 100% !important;
+    }
+}
+
+/* ACCESSIBILITY & SMALL SCREEN */
+
+@media (max-width: 480px) {
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+        outline-offset: 2px;
+    }
+
+    .upload-area.dragover {
+        transform: none;
+    }
+}

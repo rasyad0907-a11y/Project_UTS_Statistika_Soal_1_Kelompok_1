@@ -1,0 +1,223 @@
+
+/* ========================================
+   PRINT & PDF SETTINGS
+======================================== */
+
+@media print {
+
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        scroll-behavior: auto !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    html,
+    body {
+        width: 100%;
+        background: white !important;
+        color: #17243b !important;
+        font-size: 11px;
+    }
+
+    /* HIDE UNNECESSARY ELEMENTS */
+
+    .sidebar,
+    .topbar,
+    .welcome-button,
+    .input-actions,
+    .upload-card,
+    .export-actions,
+    .result-toolbar,
+    .dictionary-search,
+    .modal-overlay,
+    button {
+        display: none !important;
+    }
+
+    /* MAIN LAYOUT */
+
+    .app {
+        display: block !important;
+        width: 100%;
+    }
+
+    #section-header {
+        display: none !important;
+    }
+
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* CONTENT SECTION */
+
+    .content-section {
+        display: block;
+        width: 100%;
+        margin-bottom: 25px;
+        padding: 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* WELCOME BANNER */
+
+    .welcome-banner {
+        background: white !important;
+        color: #17243b !important;
+        border: 1px solid #dce4ed;
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .welcome-content h1 {
+        color: #17243b !important;
+        font-size: 20px;
+    }
+
+    .welcome-content p {
+        color: #64748b !important;
+    }
+
+    .welcome-label,
+    .section-subtitle {
+        color: #258db9 !important;
+    }
+
+    .welcome-decoration {
+        display: none !important;
+    }
+
+    /* SUMMARY CARDS */
+
+    .summary-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .result-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    /* DASHBOARD */
+
+    .dashboard-grid,
+    .visualization-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .dashboard-card,
+    .summary-card,
+    .result-card {
+        background: white !important;
+        border: 1px solid #dce4ed !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* CHART */
+
+    .chart-container {
+        width: 100%;
+        max-width: 100%;
+        height: 230px;
+        break-inside: avoid;
+    }
+
+    .chart-container canvas {
+        max-width: 100% !important;
+    }
+
+    /* FORMULA AND TERMS */
+
+    .formula-list,
+    .term-list {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .formula-item,
+    .term-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* DATA TABLE */
+
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 9px;
+    }
+
+    .data-table th,
+    .data-table td {
+        border: 1px solid #dce4ed !important;
+        padding: 6px;
+    }
+
+    .data-table thead {
+        display: table-header-group;
+    }
+
+    .data-table tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* FOOTER */
+
+    .main-footer {
+        display: block !important;
+        margin-top: 25px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footer-bottom {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* LINKS */
+
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+
+    /* PREVENT OVERFLOW */
+
+    img,
+    canvas,
+    table {
+        max-width: 100%;
+    }
+
+    /* PAGE BREAK */
+
+    .content-section,
+    .dashboard-card {
+        page-break-inside: avoid;
+    }
+
+}
