@@ -1,40 +1,129 @@
 
-# STATDESK – Kalkulator Data Deskriptif
+# Project UTS Statistika Soal 1 Kelompok 1
 
-Aplikasi analisis statistik deskriptif berbasis web yang digunakan untuk mengolah data numerik, menghitung ukuran statistik, dan menampilkan visualisasi data secara interaktif.
+Aplikasi berbasis web untuk melakukan pengolahan dan analisis statistik deskriptif secara praktis, interaktif, dan mudah digunakan. Aplikasi ini membantu pengguna menghitung berbagai ukuran statistik, memahami karakteristik data, serta melihat distribusi data melalui visualisasi grafik.
 
-Proyek ini dikembangkan oleh Kelompok 2 untuk memenuhi tugas mata kuliah Statistika.
+## Identitas Kelompok
+
+**Kelompok 1**
+
+| No. | NIM | Nama Anggota |
+|---|---|---|
+| 1 | 2503010035 | Wafik Muhammad Almajdi |
+| 2 | 2503010025 | Muhammad Rasyad Mubarok |
+| 3 | 2503010132 | Allya Hericka Putri |
+| 4 | 2503010051 | Reva Nur Budiman |
+
+---
 
 ## Deskripsi Aplikasi
 
-STATDESK merupakan aplikasi berbasis HTML, CSS, dan JavaScript yang membantu pengguna melakukan analisis statistik deskriptif dengan lebih mudah.
+Project UTS Statistika Soal 1 merupakan aplikasi berbasis web yang dirancang untuk membantu proses perhitungan statistik deskriptif pada sekumpulan data numerik.
 
-Pengguna dapat memasukkan data secara manual atau mengunggah file CSV. Data yang dimasukkan kemudian diproses untuk menghasilkan berbagai ukuran statistik deskriptif beserta visualisasinya.
+Pengguna dapat memasukkan data secara manual maupun mengunggah file CSV. Setelah data diproses, aplikasi akan menampilkan hasil perhitungan statistik, tabel distribusi frekuensi, dan visualisasi data.
+
+Aplikasi ini dibuat sebagai bagian dari pemenuhan tugas Ujian Tengah Semester (UTS) mata kuliah Statistika.
 
 ## Fitur Utama
 
-- Input data numerik secara manual.
-- Upload dataset menggunakan file CSV.
-- Perhitungan statistik deskriptif secara otomatis.
-- Menampilkan jumlah data, total, rata-rata, median, dan modus.
-- Menghitung nilai minimum, maksimum, dan jangkauan.
-- Menghitung kuartil pertama (Q1) dan kuartil ketiga (Q3).
-- Menghitung interquartile range (IQR).
-- Menghitung varians dan standar deviasi.
-- Menghitung koefisien variasi.
-- Menampilkan interpretasi hasil statistik.
-- Visualisasi data menggunakan grafik.
-- Menampilkan data dalam urutan terurut.
-- Pencarian kamus rumus dan istilah statistik.
-- Mengunduh template CSV.
-- Mengekspor hasil ke CSV.
-- Mencetak atau menyimpan laporan dalam format PDF.
-- Menghapus data dan mengatur ulang aplikasi.
+### 1. Input Data
+
+Pengguna dapat memasukkan data melalui dua metode:
+
+- Input Manual: Memasukkan sekumpulan angka secara langsung.
+- Upload CSV: Mengunggah file CSV yang berisi data.
+- Pemisah Data: Mendukung pemisah koma, titik koma, spasi, dan baris baru sesuai implementasi parser.
+- Preview Data: Menampilkan pratinjau data sebelum dilakukan perhitungan.
+
+### 2. Pengolahan Data
+
+- Membaca dan memproses data numerik.
+- Menghitung jumlah data yang dimasukkan.
+- Mengurutkan data dari nilai terkecil hingga terbesar.
+- Memproses data sebagai dasar analisis statistik.
+
+### 3. Perhitungan Statistik Deskriptif
+
+Aplikasi menyediakan berbagai perhitungan statistik deskriptif, meliputi:
+
+| No. | Ukuran Statistik | Keterangan |
+|---|---|---|
+| 1 | Jumlah Data (n) | Banyaknya data yang dianalisis |
+| 2 | Total Data (Σx) | Jumlah keseluruhan nilai |
+| 3 | Mean | Nilai rata-rata |
+| 4 | Median | Nilai tengah setelah data diurutkan |
+| 5 | Modus | Nilai yang paling sering muncul |
+| 6 | Minimum | Nilai terkecil |
+| 7 | Maksimum | Nilai terbesar |
+| 8 | Range | Selisih nilai maksimum dan minimum |
+| 9 | Varians Sampel | Tingkat penyebaran data sampel |
+| 10 | Varians Populasi | Tingkat penyebaran data populasi |
+| 11 | Standar Deviasi Sampel | Simpangan baku sampel |
+| 12 | Standar Deviasi Populasi | Simpangan baku populasi |
+| 13 | Kuartil | Q1, Q2, dan Q3 |
+| 14 | Interquartile Range | Selisih antara Q3 dan Q1 |
+
+### 4. Visualisasi Data
+
+Visualisasi digunakan untuk membantu pengguna memahami karakteristik dan distribusi data.
+
+Visualisasi yang disediakan mengikuti modul visualisasi aplikasi, meliputi:
+
+- Histogram untuk melihat distribusi frekuensi data.
+- Box Plot untuk melihat persebaran data dan mendeteksi pencilan.
+- Grafik distribusi frekuensi untuk menggambarkan jumlah data pada setiap interval kelas.
+
+### 5. Tabel Distribusi Frekuensi
+
+Aplikasi menyediakan tabel distribusi frekuensi yang berisi:
+
+- Interval kelas.
+- Batas bawah dan batas atas kelas.
+- Nilai tengah kelas.
+- Frekuensi absolut.
+- Frekuensi relatif.
+- Frekuensi kumulatif.
+
+### 6. Deteksi Outlier
+
+Aplikasi dapat membantu mengidentifikasi nilai pencilan (outlier) menggunakan metode Interquartile Range (IQR).
+
+Perhitungan menggunakan rumus:
+
+- IQR = Q3 - Q1
+- Batas bawah = Q1 - (1,5 × IQR)
+- Batas atas = Q3 + (1,5 × IQR)
+
+Data yang berada di luar batas tersebut dapat dikategorikan sebagai outlier.
+
+### 7. Export dan Cetak Hasil
+
+Aplikasi menyediakan fitur untuk menyimpan dan mencetak hasil analisis, sesuai fungsi yang tersedia pada modul ekspor:
+
+- Export hasil perhitungan ke CSV.
+- Mencetak laporan.
+- Menyimpan hasil melalui fitur cetak browser sebagai PDF.
+- Menampilkan data yang telah diurutkan.
+
+---
+
+## Teknologi yang Digunakan
+
+Teknologi yang digunakan dalam pengembangan aplikasi:
+
+- HTML5: Membuat struktur halaman aplikasi.
+- CSS3: Mengatur tampilan dan desain antarmuka.
+- JavaScript ES6+: Mengelola input, proses perhitungan, dan interaksi aplikasi.
+- CSV: Format file untuk pertukaran data.
+
+Library tambahan mengikuti konfigurasi yang digunakan pada file `index.html`.
+
+---
 
 ## Struktur Folder
 
 ```text
-stat-deskriptif-modular/
+Project_UTS_Statistika_Soal_1_Kelompok_1/
 │
 ├── index.html
 ├── sample_mahasiswa.csv
@@ -66,83 +155,44 @@ stat-deskriptif-modular/
     └── 07-main-init.js
 ```
 
-## Teknologi yang Digunakan
-
-| Teknologi | Kegunaan |
-|---|---|
-| HTML5 | Struktur halaman aplikasi |
-| CSS3 | Tampilan dan desain antarmuka |
-| JavaScript | Logika dan perhitungan statistik |
-| Chart.js | Visualisasi data statistik |
-| Papa Parse | Membaca dan memproses file CSV |
-
 ## Cara Menjalankan Aplikasi
 
 1. Download atau clone repository proyek.
-2. Ekstrak folder proyek jika masih berbentuk ZIP.
-3. Buka folder `stat-deskriptif-modular` menggunakan Visual Studio Code.
-4. Pastikan seluruh file dan folder berada pada struktur yang sesuai.
-5. Instal ekstensi Live Server jika belum tersedia.
-6. Klik kanan file `index.html`.
-7. Pilih **Open with Live Server**.
-8. Aplikasi akan terbuka melalui browser.
+2. Ekstrak folder proyek apabila masih berbentuk ZIP.
+3. Buka folder `Project_UTS_Statistika_Soal_1_Kelompok_1` menggunakan Visual Studio Code.
+4. Pastikan seluruh folder dan file berada pada struktur yang sesuai.
+5. Jalankan aplikasi menggunakan Live Server.
+6. Buka halaman `index.html` melalui browser.
 
-## Cara Menggunakan Aplikasi
+Catatan: Karena aplikasi menggunakan file HTML terpisah di dalam folder `partials`, disarankan menjalankannya melalui Live Server agar proses pemuatan file berjalan dengan baik.
 
-### 1. Memasukkan Data
+## Contoh Penggunaan
 
-Pengguna dapat memasukkan angka secara manual melalui kolom input yang tersedia.
+1. Buka aplikasi melalui browser.
+2. Masukkan data numerik secara manual atau unggah file CSV.
+3. Periksa data yang telah dimasukkan.
+4. Jalankan proses perhitungan.
+5. Lihat hasil statistik deskriptif pada dashboard.
+6. Amati grafik dan tabel distribusi frekuensi.
+7. Gunakan fitur export atau cetak apabila diperlukan.
 
-### 2. Mengunggah File CSV
+## Tujuan Pembuatan
 
-Pengguna dapat mengunggah dataset dengan format `.csv`.
+Pembuatan aplikasi ini bertujuan untuk:
 
-Aplikasi juga menyediakan file contoh `sample_mahasiswa.csv` yang dapat digunakan untuk pengujian.
-
-### 3. Menghitung Statistik
-
-Klik tombol **Hitung Statistik** untuk memproses data dan menghasilkan ukuran statistik deskriptif.
-
-### 4. Melihat Hasil
-
-Hasil perhitungan akan ditampilkan pada bagian dashboard dan hasil statistik, termasuk tabel, ringkasan, serta visualisasi grafik.
-
-### 5. Mengekspor Hasil
-
-Pengguna dapat mengunduh hasil analisis dalam format CSV atau mencetak laporan menjadi PDF.
-
-## Dataset Contoh
-
-File `sample_mahasiswa.csv` berisi data 22 mahasiswa dengan atribut:
-
-- NIM
-- Nama
-- Nilai_Ujian
-- Waktu_Belajar_Jam
-- Kehadiran_Persen
-
-Dataset ini digunakan sebagai contoh pengujian fitur pembacaan CSV dan analisis statistik.
-
-## Rumus Statistik yang Digunakan
-
-| Ukuran Statistik | Keterangan |
-|---|---|
-| Mean | Rata-rata data |
-| Median | Nilai tengah |
-| Modus | Nilai yang paling sering muncul |
-| Range | Selisih nilai maksimum dan minimum |
-| Varians | Ukuran penyebaran data |
-| Standar Deviasi | Akar kuadrat varians |
-| Kuartil | Pembagian data menjadi empat bagian |
-| IQR | Selisih Q3 dan Q1 |
-| Koefisien Variasi | Perbandingan standar deviasi terhadap mean |
-
-## Pengembang
-
-**Kelompok 2**
-
-Proyek ini dibuat sebagai bagian dari pembelajaran dan penerapan materi statistika deskriptif menggunakan teknologi web.
+- Mempermudah proses perhitungan statistik deskriptif.
+- Mengurangi kesalahan dalam perhitungan manual.
+- Membantu memahami konsep dasar statistika.
+- Menampilkan hasil analisis dalam bentuk tabel dan grafik.
+- Menerapkan pemrograman modular dalam pengembangan aplikasi web.
+- Mengembangkan kemampuan kerja sama tim dalam menyelesaikan proyek pemrograman.
 
 ---
 
-© 2026 STATDESK – Kalkulator Data Deskriptif.
+## Penutup
+
+Project UTS Statistika Soal 1 Kelompok 1 dibuat sebagai bentuk penerapan materi statistika deskriptif ke dalam sebuah aplikasi berbasis web. Melalui aplikasi ini, proses pengolahan data diharapkan menjadi lebih mudah, cepat, dan terstruktur.
+
+**Project UTS Statistika Soal 1 Kelompok 1**
+
+Dibuat untuk memenuhi tugas Ujian Tengah Semester mata kuliah Statistika.
