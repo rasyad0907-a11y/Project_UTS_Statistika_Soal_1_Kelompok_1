@@ -150,7 +150,7 @@ export function exportCSV() {
     const outliers = getOutliers(r);
 
     const rows = [
-        ["KALKULATOR DATA DESKRIPTIF - KELOMPOK 2"],
+        ["KALKULATOR DATA DESKRIPTIF - KELOMPOK 1"],
         ["Keterangan", "Hasil"],
         ["Jumlah Data", r.n],
         ["Jumlah Nilai", r.sum],
@@ -198,7 +198,7 @@ export function exportCSV() {
 
     downloadFile(
         "\uFEFF" + csv,
-        "hasil_statistika_kelompok_2.csv",
+        "hasil_statistika_kelompok_1.csv",
         "text/csv;charset=utf-8;"
     );
 }
@@ -271,7 +271,7 @@ export function exportPDF() {
         pdf.setFontSize(10);
 
         pdf.text(
-            "KELOMPOK 2",
+            "KELOMPOK 1",
             margin,
             37
         );
@@ -763,8 +763,6 @@ export function exportPDF() {
 
         ];
 
-        let addedChart = false;
-
         for (const chart of chartImages) {
 
             const image = getCanvasImage(chart.id);
@@ -804,9 +802,6 @@ export function exportPDF() {
                 imageWidth,
                 imageHeight
             );
-
-            addedChart = true;
-
         }
 
 
@@ -834,7 +829,7 @@ export function exportPDF() {
             pdf.setTextColor(...colors.muted);
 
             pdf.text(
-                "2026 | STATDESK - KELOMPOK 2",
+                "2026 | STATDESK - KELOMPOK 1",
                 margin,
                 pageHeight - 11
             );
@@ -847,7 +842,6 @@ export function exportPDF() {
                     align: "right"
                 }
             );
-
         }
 
 
@@ -855,7 +849,7 @@ export function exportPDF() {
         // SIMPAN PDF
         // ==================================
 
-        pdf.save("Laporan_Statistika_Kelompok_2.pdf");
+        pdf.save("Laporan_Statistika_Kelompok_1.pdf");
 
         console.log("Laporan PDF berhasil dibuat.");
 
@@ -867,7 +861,5 @@ export function exportPDF() {
             "Gagal membuat laporan PDF.\n\n" +
             error.message
         );
-
     }
-
 }
